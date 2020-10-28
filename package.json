@@ -1,0 +1,15 @@
+{
+  "name": "consultora",
+  "version": "1.0.0",
+  "description": "Consultora FAOU",
+  "main": "index.html",
+  "scripts": {
+    "dev": "sergey --watch",
+    "start": "sergey"
+  },
+  "author": "@felipetodev",
+  "license": "MIT",
+  "dependencies": {
+    "sergey": "0.0.13"
+  }
+}
