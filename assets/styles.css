@@ -94,7 +94,7 @@ header {
     left: var(--spacing);
     right: var(--spacing);
     height: 2px;
-    background: var(--color-accent);
+    background: crimson;
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
     transition: -webkit-transform 150ms ease-in-out;
@@ -151,6 +151,13 @@ header.is-active,
 
 /* About */
 
+.home-about h2 {
+    text-decoration: underline;
+    text-decoration-thickness: .2rem;
+    text-decoration-color: crimson;
+    text-underline-offset: .5rem;
+}
+
 .home-about {
     padding: 4em 0;
     max-width: 900px;
@@ -175,20 +182,7 @@ header.is-active,
     opacity: 1;
 }
 
-/* More info */
-
-.home-more-stuff {
-    padding: 4em 0;
-    background: #f4f4f4;
-}
-
-.more-stuff-grid {
-    background: #f4f4f4;
-    display: grid;
-    grid-gap: 2em;
-    align-items: center;
-    grid-template-columns: minmax(1em, 1fr) repeat(2, minmax(200px, 400px)) minmax(1em, 1fr);
-}
+/* Propuesta Valor */
 
 .from-left {
     grid-column: 2 / 3;
@@ -222,7 +216,7 @@ header.is-active,
 .gallery {
     width: 85%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 2rem;
     margin: 0 auto;
 }
@@ -234,6 +228,13 @@ header.is-active,
 .img-container {
     overflow: hidden;
     border-radius: 50%;
+}
+
+.img-container p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
 }
 
 .img-container img {
@@ -286,4 +287,150 @@ header.is-active,
 
 .full-img.open {
     transform: translate(-50%, -50%) scale(1);
+}
+
+
+
+/* Overlapping */
+
+.overlapping h2 {
+    margin-bottom: 2.5rem;
+}
+
+.overlapping {
+    min-height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    background: #f4f4f4;
+}
+
+.over__container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left__content {
+    width: 65%;
+    height: 480px;
+    background: url('https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500') no-repeat center;
+    box-shadow: 0px 2px 8px 0px #858484;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.right__content {
+    width: 50%;
+    min-height: 200px;
+    background-color: #dc143ce8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 1rem;
+    color: #ffff;
+    margin-left: -150px; /*overlapping*/
+    box-shadow: 0px 2px 8px 0px #858484;
+}
+
+.right__content h2 {
+    font-weight: lighter;
+}
+
+.right__content p {
+    margin: 2rem 0;
+    font-weight: 300;
+    font-size: .9rem;
+}
+
+.right__content a {
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #ffff;
+    color: black;
+    padding: .5rem 1rem;
+    display: inline-block;
+    letter-spacing: 2px;
+    border-radius: 1rem;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+    .over__container {
+        flex-direction: column;
+        width: 90%;
+        margin: 0 1rem;
+    }
+
+    .left__content {
+        width: 100%;
+        height: 400px;
+    }
+
+    .right__content {
+        width: 90%;
+        margin: 0;
+        margin-top: -100px; /*overlapping*/
+    }
+}
+
+/* Team Members Cards */
+
+.wrapper-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 19rem));
+    grid-gap: 2rem;
+    justify-content: center;
+}
+  
+.container__card {
+    overflow: hidden;
+    box-shadow: 0px 2px 8px 0px #858484;
+    background-color: white;
+    text-align: center;
+    border-radius: 1rem;
+    position: relative;
+}
+  
+.banner__img {
+    position: absolute;
+    background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60');
+    height: 10rem;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+  
+.profile__img {
+    width: 8rem;
+    clip-path: circle(60px at center);
+    margin-top: 4.5rem;
+}
+  
+.profile__name {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+  
+.description {
+    margin: 1rem 2rem;
+    font-size: 0.9rem;
+}
+  
+.profile__btn {
+    width: 100%;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    padding: 1rem;
+    cursor: pointer;
+    background-color: crimson;
 }

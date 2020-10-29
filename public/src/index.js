@@ -6,105 +6,111 @@ const sectionOne = document.querySelector(".home-intro");
 const faders = document.querySelectorAll(".fade-in");
 const sliders = document.querySelectorAll(".slide-in");
 
-const sectionOneOptions = {
-    rootMargin: "-200px 0px 0px 0px"
-};
+if(sectionOne) {
 
-const sectionOneObserver = new IntersectionObserver(function(
-    entries, sectionOneObserver
-) {
-    entries.forEach(entry => {
-        if(!entry.isIntersecting) {
-            header.classList.add("nav-scrolled");
-        } else {
-            header.classList.remove("nav-scrolled");
-        }
-    })
-}, 
-sectionOneOptions);
+    const sectionOneOptions = {
+        rootMargin: "-200px 0px 0px 0px"
+    };
 
-sectionOneObserver.observe(sectionOne);
+    const sectionOneObserver = new IntersectionObserver(function(
+        entries, sectionOneObserver
+    ) {
+        entries.forEach(entry => {
+            if(!entry.isIntersecting) {
+                header.classList.add("nav-scrolled");
+            } else {
+                header.classList.remove("nav-scrolled");
+            }
+        })
+    }, 
+    sectionOneOptions);
 
-const appearOptions = {
-    threshold: 0,
-    rootMargin: "0px 0px -250px 0px"
-};
+    sectionOneObserver.observe(sectionOne);
 
-const appearOnScroll = new IntersectionObserver(function(
-    entries, appearOnScroll
-) {
-    entries.forEach(entry => {
-        if(!entry.isIntersecting) {
-            return;
-        } else {
-            entry.target.classList.add("is-active");
-            appearOnScroll.unobserve(entry.target);
-        }
-    })
-}, appearOptions);
+    const appearOptions = {
+        threshold: 0,
+        rootMargin: "0px 0px -250px 0px"
+    };
 
-faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-});
+    const appearOnScroll = new IntersectionObserver(function(
+        entries, appearOnScroll
+    ) {
+        entries.forEach(entry => {
+            if(!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add("is-active");
+                appearOnScroll.unobserve(entry.target);
+            }
+        })
+    }, appearOptions);
 
-sliders.forEach(slider => {
-    appearOnScroll.observe(slider);
-});
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
 
-
-
-/* Hero */
-
-
-const $heroText = d.querySelector(".hero__text");
-
-function homeAnimation() {
-
-    setTimeout(() => {
-        header.classList.add("is-active");
-        
-    }, 300);
-
-    setTimeout(() => {
-        $heroText.classList.add("is-active");
-        
-    }, 900);
-
+    sliders.forEach(slider => {
+        appearOnScroll.observe(slider);
+    });
 
 }
 
-homeAnimation();
+/* Hero */
 
+if(d.querySelector(".hero__text")) {
+    const $heroText = d.querySelector(".hero__text");
+
+    function homeAnimation() {
+
+        setTimeout(() => {
+            header.classList.add("is-active");
+            
+        }, 300);
+
+        setTimeout(() => {
+            $heroText.classList.add("is-active");
+            
+        }, 900);
+
+
+    }
+
+    homeAnimation();
+} else {
+    header.classList.add("is-active");
+    header.style.background = "#333";
+    header.style.position = "sticky";
+}
 
 /* Modal */
 
-const $modal = d.querySelector(".modal");
-const $previews = d.querySelectorAll(".gallery img");
-const $original = d.querySelector(".full-img");
-const $modalText = d.querySelectorAll(".modal-description");
-const $caption = d.querySelector(".caption");
+if(d.querySelector(".modal")) {
+    const $modal = d.querySelector(".modal");
+    const $previews = d.querySelectorAll(".gallery img");
+    const $original = d.querySelector(".full-img");
+    const $modalText = d.querySelectorAll(".modal-description");
+    const $caption = d.querySelector(".caption");
 
-$previews.forEach(e => {
-    e.addEventListener("click", () => {
-        $modal.classList.add("open");
-        $original.classList.add("open");
-        // Cambiar dinamicamente el texto y imagen
-        const originalSrc = e.getAttribute("data-original");
-        $original.src = originalSrc;
+    $previews.forEach(e => {
+        e.addEventListener("click", () => {
+            $modal.classList.add("open");
+            $original.classList.add("open");
+            // Cambiar dinamicamente el texto y imagen
+            const originalSrc = e.getAttribute("data-original");
+            $original.src = originalSrc;
 
-        const altText = e.alt;
-        $caption.textContent = altText;
+            const altText = e.alt;
+            $caption.textContent = altText;
+        });
     });
-});
 
-$modal.addEventListener("click", (e) => {
-    // console.log(e);
-    if(e.target.classList.contains("modal")) {
-        $modal.classList.remove("open");
-    }
-});
-
-
+    $modal.addEventListener("click", (e) => {
+        // console.log(e);
+        if(e.target.classList.contains("modal")) {
+            $modal.classList.remove("open");
+        }
+    });
+}
 /*
 function smartVideo() {
     const $videos = d.querySelectorAll("video[data-smart-video]");
