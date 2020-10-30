@@ -80,10 +80,14 @@ header {
 
 .social__icon {
     min-width: 10%;
+    text-align: end;
+}
+
+.social__icon a:not(:last-child) {
+    margin-right: .5rem;
 }
 
 .social__icon i {
-    letter-spacing: 3px;
     color: crimson;
 }
 
@@ -606,22 +610,160 @@ header.is-active,
   
 .profile__name {
     font-weight: bold;
-    font-size: 1.5rem;
     margin: 0;
 }
   
 .description {
     margin: 1rem 2rem;
-    font-size: 0.9rem;
 }
   
 .profile__btn {
     width: 100%;
     border: none;
-    font-size: 1rem;
     font-weight: bold;
     color: white;
     padding: 1rem;
     cursor: pointer;
     background-color: crimson;
+}
+
+/* Footer */
+
+.footer {
+    background-color: #2d314d;
+    color: white;
+    font-size: 0.75rem;
+    padding: 2rem 3rem;
+}
+
+.footer__container {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1.5fr 3fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: "logo links1 links2 news" 
+        "social links1 links2 copyright";
+    gap: 1.5em;
+    justify-items: start;
+}
+
+.footer a {
+    color: white;
+}
+
+.footer__logo {
+    grid-area: logo;
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.footer__social {
+    grid-area: social;
+    align-self: end;
+}
+
+.footer__social a:hover {
+    color: crimson;
+}
+
+.footer__social a {
+    display: inline-block;
+    font-size: 1.2rem;
+}
+
+.footer__social a:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.footer__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    text-align: start;
+}
+
+.footer__links a {
+    text-decoration: none;
+}
+
+.footer__links.col1 {
+    grid-area: links1;
+}
+
+.footer__links.col2 {
+    grid-area: links2;
+}
+
+.footer__news {
+    grid-area: news;
+    text-align: right;
+    justify-self: end; 
+}
+
+.footer__news p {
+    text-align: start;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+.footer__mailbox {
+    padding: .5rem;
+    border: none;
+}
+
+.footer__btn {
+    border: none;
+    background-color: crimson;
+    color: white;
+    padding: .5rem .7rem;
+}
+
+.footer__copyright {
+    grid-area: copyright;
+    align-self: end;
+    justify-self: end;
+    text-align: end;
+}
+
+@media only screen and (max-width: 768px) {
+    .footer {
+        text-align: center;
+    }
+
+    .footer__container {
+        display: inline;
+    }
+
+    .footer__logo {
+        margin-bottom: 1.8rem;
+    }
+
+    .footer__social {
+        margin-bottom: 1.8rem;
+    }
+
+    .footer__links {
+        align-items: center;
+        line-height: 2;
+    }
+
+    .footer__links.col2 {
+        margin-bottom: 1.8rem;
+    }
+
+    .footer__news {
+        margin-bottom: 1.8rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer__news p {
+        text-align: center;
+    }
+
+    .footer__copyright {
+        text-align: center;
+    }
 }
