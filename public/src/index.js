@@ -111,6 +111,53 @@ if(d.querySelector(".modal")) {
         }
     });
 }
+
+/* Testimonial */
+
+function slider() {
+    const $next = d.querySelector(".btn__next");
+    const $prev = d.querySelector(".btn__prev");
+    const $slides = d.querySelectorAll(".slide");
+
+    let i = 0;
+
+    d.addEventListener("click", (e) => {
+        if(e.target === $prev) {
+            // e.preventDefault();
+            $slides[i].style.display = 'none';
+            i--;
+
+            if(i < 0) {
+                i = $slides.length - 1;
+            }
+
+            $slides[i].style.display = 'flex';
+        }
+
+        if(e.target === $next) {
+            // e.preventDefault();
+            $slides[i].style.display = 'none';
+            i++;
+
+            if(i >= $slides.length) {
+                i = 0;
+            }
+
+            $slides[i].style.display = 'flex';
+        }
+    });
+
+}
+
+slider();
+
+
+
+
+
+
+
+
 /*
 function smartVideo() {
     const $videos = d.querySelectorAll("video[data-smart-video]");
