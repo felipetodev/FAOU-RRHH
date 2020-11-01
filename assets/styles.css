@@ -28,7 +28,7 @@ body {
     margin: 0;
     text-align: center;
     font-family: "Poppins", sans-serif;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 
 span {
@@ -83,11 +83,11 @@ header {
     text-align: end;
 }
 
-.social__icon a:not(:last-child) {
+.social__icons:not(:last-child) {
     margin-right: .5rem;
 }
 
-.social__icon i {
+.social__icons {
     color: crimson;
 }
 
@@ -179,11 +179,13 @@ header.is-active,
 
 .fade-in {
     opacity: 0;
+    visibility: hidden;
     transition: opacity 300ms ease-in;
 }
 
 .fade-in.is-active {
     opacity: 1;
+    visibility: visible;
 }
 
 /* Propuesta Valor */
@@ -206,6 +208,7 @@ header.is-active,
         opacity 250ms ease-in,
         transform 400ms ease-in;
     opacity: 0;
+    visibility: hidden;
 }
 
 .from-left.is-active,
@@ -213,6 +216,7 @@ header.is-active,
     -webkit-transform: translateX(0%);
     transform: translateX(0%);
     opacity: 1;
+    visibility: visible;
 }
 
 /* Services */
@@ -354,15 +358,24 @@ header.is-active,
 }
 
 .right__content a {
-    text-decoration: none;
     text-transform: uppercase;
-    background-color: #ffff;
-    color: black;
-    padding: .5rem 1rem;
+    color: #f4f4f4;
+    padding: .5rem;
     display: inline-block;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    font-size: .8rem;
+    font-weight: 500;
+    text-decoration:none;
+    box-shadow: inset 0 -2.5px 0 #f4f4f4;
+    transition: all 200ms ease-in-out;
+}
+
+.right__content a:hover {
+    /* background-color: #f4f4f4;
+    color: #000; */
+    border: 2.5px solid #f4f4f4;
     border-radius: 1rem;
-    font-weight: bold;
+    box-shadow: 0 5px 15px #471919;
 }
 
 @media only screen and (max-width: 768px) {
@@ -663,16 +676,17 @@ header.is-active,
     align-self: end;
 }
 
-.footer__social a:hover {
+.footer__icon {
+    display: inline-block;
+    font-size: 1.2rem;
+    transition: all 300ms ease;
+}
+
+.footer__icon:hover {
     color: crimson;
 }
 
-.footer__social a {
-    display: inline-block;
-    font-size: 1.2rem;
-}
-
-.footer__social a:not(:last-child) {
+.footer__icon:not(:last-child) {
     margin-right: 1rem;
 }
 
@@ -686,6 +700,11 @@ header.is-active,
 
 .footer__links a {
     text-decoration: none;
+    transition: all 300ms ease;
+}
+
+.footer__links a:hover {
+    color: crimson;
 }
 
 .footer__links.col1 {
@@ -703,7 +722,7 @@ header.is-active,
 }
 
 .footer__news p {
-    text-align: start;
+    text-align: end;
     margin: 0;
     margin-bottom: 0.5rem;
 }
@@ -711,13 +730,24 @@ header.is-active,
 .footer__mailbox {
     padding: .5rem;
     border: none;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .footer__btn {
     border: none;
     background-color: crimson;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     color: white;
     padding: .5rem .7rem;
+    cursor: pointer;
+}
+
+.footer__btn:hover {
+    box-shadow: 0 0 5px rgba(212, 212, 212, 0.342);
+}
+
+.footer__btn.is-active {
+    background-color: rgb(47, 255, 151);
 }
 
 .footer__copyright {
@@ -765,5 +795,92 @@ header.is-active,
 
     .footer__copyright {
         text-align: center;
+    }
+}
+
+/* Mobile Navbar */
+
+.mobile-nav {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .mobile-nav {
+        display: flex;
+    }
+
+    .mobile__navlist {
+        display: flex;
+        position: fixed;
+        align-items: center;
+        text-align: center;
+        justify-content: space-evenly;
+        width: 100%;
+        border-radius: 1rem 1rem 0rem 0rem;
+        background-color: crimson;
+        padding: .8rem 0rem;
+        bottom: 0;
+        font-size: 0.7rem;
+        z-index: 3;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px -10px 10px;
+    }
+
+    .mobile__navlink {
+        display: block;
+        color: white;
+        width: 25%;
+        text-decoration: none;
+    }
+
+    .mobile__navlink:not(:last-child) {
+        border-right: solid 1px;
+    }
+
+    /* Header */
+    .nav__list {
+        display: none;
+    }
+
+    .social__icon {
+        display: none;
+    }
+
+    header {
+        padding: 0;
+        justify-content: center;
+    }
+
+    /* Footer */
+
+    .footer__copyright {
+        margin-bottom: 5rem;
+    }
+}
+
+/* Conocenos */
+
+@media only screen and (max-width: 768px) {
+    .home-about {
+        max-width: 90%;
+    }
+
+    .columns {
+        flex-direction: column;
+    }
+
+    .col + .col {
+        margin-left: 0;
+    }
+
+    .col:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    .over__container {
+        overflow: hidden;
+    }
+
+    .main__slider {
+        overflow: hidden;
     }
 }

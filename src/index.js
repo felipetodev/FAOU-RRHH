@@ -115,9 +115,9 @@ if(d.querySelector(".modal")) {
 /* Testimonial */
 
 function slider() {
+    const $slides = d.querySelectorAll(".slide");
     const $next = d.querySelector(".btn__next");
     const $prev = d.querySelector(".btn__prev");
-    const $slides = d.querySelectorAll(".slide");
 
     let i = 0;
 
@@ -151,11 +151,32 @@ function slider() {
 
 slider();
 
+/* Newsletter */
 
+if(d.querySelector(".footer__btn")) {
+    function newsletter() {
+        const $footerBtn = d.querySelector(".footer__btn");
+        const $mailBox = d.querySelector(".footer__mailbox");
+        
+        $footerBtn.addEventListener("click", e => {
+            
+            $footerBtn.innerHTML = `<img src="/assets/loader-spinner.svg" alt="Loading..." />`
+            
+            setTimeout(() => {
+                $footerBtn.classList.add("is-active");
+                $footerBtn.innerHTML = `<i class="loader fas fa-check" alt="Enviado"></i>`;
+            }, 3000);
+            
+            setTimeout(() => {
+                $mailBox.value = "";
+                $mailBox.setAttribute("placeholder", "¡ Mensaje Recibido !");
+            }, 3000);
 
-
-
-
+            $footerBtn.disabled = "true";
+        });
+    }
+    newsletter();
+}
 
 
 /*

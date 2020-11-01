@@ -20,13 +20,13 @@
         <a class="nav__link" href="#">Contactanos</a>
     </nav>
     <div class="social__icon">
-        <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a class="social__icons" href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in" alt="LinkedIn"></i></a>
+        <a class="social__icons" href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram" alt="Instagram"></i></a>
     </div>
 </header>
     <section class="hero">
     <div class="home-intro">
-        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" />
+        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="faou-teamwork"/>
     </div>
     <h1 class="hero__text">"El éxito en la vida no se mide por lo que logras, sino por los obstaculos que esperas."</h1>
 </section>
@@ -58,7 +58,7 @@
                 <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia eligendi laudantium tenetur obcaecati! Veniam, ut tempora quos dolores obcaecati eos voluptate totam eius voluptates, doloribus, fugiat commodi assumenda maiores quaeratfugiat commodi assumenda maiores quaerat.
                 </p>
-                <a href="#" class="content__btn">Más...</a>
+                <a href="#" class="content__btn">Leer más...</a>
             </div>
         </div>
     </div>
@@ -154,38 +154,52 @@
 </section>
     <footer class="footer">
     <div class="footer__container">
-        <a class="footer__logo" href="/">FAOU<span>Consulting</span></a>
-
+        <a class="footer__logo" href="/" alt="logo">FAOU<span>Consulting</span></a>
         <div class="footer__social">
-            <a href="#" alt="facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" alt="instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" alt="google"><i class="fab fa-google-plus-g"></i></a>
-            <a href="#" alt="linkedin"><i class="fab fa-linkedin"></i></a>
+            <a class="footer__icon" href="#" aria-label="Facebook"><i class="fab fa-facebook" alt="Facebook"></i></a>
+            <a class="footer__icon" href="#" aria-label="Instagram"><i class="fab fa-instagram" alt="Instagram"></i></a>
+            <a class="footer__icon" href="#" aria-label="Google"><i class="fab fa-google-plus-g" alt="Google"></i></a>
+            <a class="footer__icon" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin" alt="LinkedIn"></i></a>
         </div>
-
         <div class="footer__links col1">
             <a href="#">Contactanos</a>
-            <a href="#"><i class="fas fa-map-marker-alt"></i> Av. Providencia, 847</a>
-            <a href="#"><i class="far fa-envelope"></i> consulting@faou.cl</a>
+            <a href="#"><span><i class="fas fa-map-marker-alt"></i></span> Av. Providencia, 847</a>
+            <a href="#"><span><i class="far fa-envelope"></i></span> consulting@faou.cl</a>
         </div>
-
         <div class="footer__links col2">
             <a href="#">Inicio</a>
             <a href="#">Servicios</a>
             <a href="#">Política de privacidad</a>
         </div>
-
         <div class="footer__news">
             <p>Estemos en contacto!</p>
-            <input class="footer__mailbox" type="text" placeholder="Ingresa tu Email"><button type="submit" class="footer__btn"><i class="far fa-paper-plane"></i></button>
+            <input class="footer__mailbox" type="text" placeholder="Ingresa tu Email"><button type="submit" class="footer__btn"><i class="far fa-paper-plane" alt="Enviar"></i></button>
         </div>
-
         <div class="footer__copyright">
             &copy; FAOUConsulting. Todos los derechos reservados.
         </div>
     </div>
-    
 </footer>
+    <section class="mobile-nav">
+    <nav class="mobile__navlist">
+        <a href="/" class="mobile__navlink">
+            <i class="fas fa-home" alt="Inicio"></i><br>
+            Inicio
+        </a>
+        <a href="somos.html" class="mobile__navlink">
+            <i class="fas fa-users" alt="Somos"></i><br>
+            Somos
+        </a>
+        <a href="#" class="mobile__navlink">
+            <i class="fas fa-pen-nib" alt="Servicios"></i><br>
+            Servicios
+        </a>
+        <a href="#" class="mobile__navlink">
+            <i class="far fa-envelope" alt="Contactos"></i><br>
+            Contactos
+        </a>
+    </nav>
+</section>
     <script src="src/index.js"></script>
 </body>
 </html>
