@@ -179,6 +179,23 @@ if(d.querySelector(".footer__btn")) {
 }
 
 
+if(d.querySelectorAll(".input")) {
+    const $inputs = d.querySelectorAll(".input");
+    function focusInput() {
+        $inputs.forEach(input => {
+            input.addEventListener("keyup", e => {
+            let parentEl = e.target.offsetParent;
+            if(e.target.value !== "") {
+                parentEl.classList.add("focus");
+            } else {
+                parentEl.classList.remove("focus");
+            }
+            });
+        });
+    }
+    focusInput();
+}
+
 /*
 function smartVideo() {
     const $videos = d.querySelectorAll("video[data-smart-video]");
