@@ -61,25 +61,22 @@ if(d.querySelector(".hero__text")) {
     const $heroText = d.querySelector(".hero__text");
 
     function homeAnimation() {
-
         setTimeout(() => {
-            header.classList.add("is-active");
-            
+            header.classList.add("is-active");   
         }, 300);
 
         setTimeout(() => {
-            $heroText.classList.add("is-active");
-            
+            $heroText.classList.add("is-active");    
         }, 900);
-
-
     }
 
     homeAnimation();
 } else {
     header.classList.add("is-active");
-    header.style.background = "#333";
+    header.style.background = "#2d314d";
     header.style.position = "sticky";
+
+    scrollNav();
 }
 
 /* Modal */
@@ -184,41 +181,26 @@ if(d.querySelectorAll(".input")) {
     function focusInput() {
         $inputs.forEach(input => {
             input.addEventListener("keyup", e => {
-            let parentEl = e.target.offsetParent;
-            if(e.target.value !== "") {
-                parentEl.classList.add("focus");
-            } else {
-                parentEl.classList.remove("focus");
-            }
+                const parentEl = e.target.offsetParent;
+                if(e.target.value !== "") {
+                    parentEl.classList.add("focus");
+                } else {
+                    parentEl.classList.remove("focus");
+                }
             });
         });
     }
     focusInput();
 }
 
-/*
-function smartVideo() {
-    const $videos = d.querySelectorAll("video[data-smart-video]");
-
-    const cb = (entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                entry.target.play();
-            } else {
-                entry.target.pause();
-            }
-
-            w.addEventListener("visibilitychange", e => 
-                d.visibilityState === "visible"
-                    ? entry.target.play()
-                    : entry.target.pause()
-            )
-        })
-    }
-
-    const observer = new IntersectionObserver(cb, { threshold: 0.6 })
-
-    $videos.forEach(el => observer.observe(el))
+function scrollNav() {
+    w.addEventListener("scroll", e => {
+        const scrollTop = w.pageYOffset || d.documentElement.scrollTop;
+        
+        if(scrollTop > 120) {
+            header.classList.add("hidden");
+        } else {
+            header.classList.remove("hidden");
+        }
+    });
 }
-
-smartVideo();*/
